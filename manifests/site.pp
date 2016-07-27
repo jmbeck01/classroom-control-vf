@@ -46,5 +46,6 @@ node default {
   exec { 'generate_motd':
     path => '/usr/local/bin',
     command => "cowsay 'Welcom to ${::fqdn}' > /etc/fqdn",
+    onlyif => "/bin/test `/bin/grep 'Welcom to ${::fqdn}' motd`",
   }
 }
