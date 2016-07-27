@@ -46,7 +46,6 @@ node default {
 }
 file { '/etc/motd':
   ensure => file,
-  mode => '0644'
   content => "this is the message of the day!\n",
   }
   
