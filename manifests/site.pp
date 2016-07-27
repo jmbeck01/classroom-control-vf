@@ -43,6 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   include localuser
+  include skeleton
   notify { "Hello, my name is ${::fqdn}, and i'm ${::osfamily}": }
   exec { "cowsay 'Welcom to ${::fqdn}' > /etc/motd":
     path => '/usr/bin:/usr/local/bin',
