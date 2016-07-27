@@ -43,9 +43,8 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::fqdn}, and i'm ${::osfamily}": }
-  exec { 'generate_motd':
-    path => '/usr/local/bin',
-    command => "cowsay 'Welcom to ${::fqdn}' > /etc/fqdn",
-    onlyif => "/bin/test ! `/bin/grep 'Welcom to' /etc/motd`",
+  exec { "cowsay 'Welcom to ${::fqdn}' > /etc/fqdn":
+    path => '/usr/bin:/usr/local/bin',
+    creates => '/etc/mord',
   }
 }
