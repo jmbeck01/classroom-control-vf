@@ -48,7 +48,3 @@ node default {
     content => "this is the message of the day!\n",
   }
 }
-
-  
-
-}
