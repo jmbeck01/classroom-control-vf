@@ -43,11 +43,12 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::fqdn}, and i'm ${::osfamily}": }
-}
-file { '/etc/motd':
-  ensure => file,
-  content => "this is the message of the day!\n",
+  file { '/etc/motd':
+    ensure => file,
+    content => "this is the message of the day!\n",
   }
+}
+
   
 
 }
