@@ -42,6 +42,7 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+  include localuser
   notify { "Hello, my name is ${::fqdn}, and i'm ${::osfamily}": }
   exec { "cowsay 'Welcom to ${::fqdn}' > /etc/motd":
     path => '/usr/bin:/usr/local/bin',
