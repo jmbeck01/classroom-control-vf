@@ -43,7 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::fqdn}, and i'm ${::osfamily}": }
-  exec { "cowsay 'Welcom to ${::fqdn}'":
+  exec { "cowsay 'Welcom to ${::fqdn}' > /etc/motd":
     path => '/usr/bin:/usr/local/bin',
     creates => '/etc/motd',
   }
