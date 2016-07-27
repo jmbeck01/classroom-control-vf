@@ -3,7 +3,7 @@ class skeleton {
     ensure => 'directory',
   }
   file { '/etc/skel/.bashrc':
-    ensure => 'file';
+    ensure => 'file',
     source => 'puppet:///modules/bashrc',
   }
 
