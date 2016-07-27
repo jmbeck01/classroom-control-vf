@@ -1,4 +1,5 @@
-user { 'fundamentals':
-  ensure => 'present',
-  }
-  
+Class localuser {
+  user { 'fundamentals':
+    ensure => 'present',
+   }
+}
