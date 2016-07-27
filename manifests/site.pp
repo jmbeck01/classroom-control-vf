@@ -44,3 +44,11 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::fqdn}, and i'm ${::osfamily}": }
 }
+file { '/etc/motd':
+  ensure => file,
+  mode => '0644'
+  content => "this is the message of the day!\n",
+  }
+  
+
+}
