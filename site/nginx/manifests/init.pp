@@ -51,14 +51,14 @@ case $::osfamily {
     ensure => file,
     #source => 'puppet:///modules/nginx/nginx.conf',
     content => template('nginx/nginx.conf.erb'),
-    require => Package[${package_name}],
-    notify => Service[${service_name}],
+    require => Package[$package_name],
+    notify => Service[$service_name],
   }
   file { "${server_block_dir}/default.conf":
     ensure => file,
     #source => 'puppet:///modules/nginx/default.conf',
     content => template('nginx/default.conf.erb'),
-    require => Package[${package_name}],
+    require => Package[$package_name],
   }
   file { $doc_root:
     ensure => directory,
