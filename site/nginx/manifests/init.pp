@@ -72,7 +72,8 @@ case $::osfamily {
   }
   file { "${doc_root}/example.js":
     ensure => file,
-    source => 'puppet:///modules/nginx/clock.js',
+    #source => 'puppet:///modules/nginx/clock.js',
+    content = template('nginx/index.html.erb'),
   }
   service { $service_name:
     ensure => running,
