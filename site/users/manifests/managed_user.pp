@@ -7,6 +7,6 @@ define users::managed_user (
   file { "/home/${title}":
     ensure => directory,
     owner => $title,
-    owner => $group
+    group => $group
   }
 }
