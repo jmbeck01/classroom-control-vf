@@ -5,36 +5,36 @@ class nginx {
     group => 'root',
     mode => '0664',
   }
-  package { 'nginx':
+  package { $package_name:
     ensure => 'present',
   }
 
-  file { '/etc/nginx/nginx.conf':
+  file { "${config_dir}/nginx.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
     notify => Service['nginx'],
   }
-  file { '/etc/nginx/conf.d/default.conf':
+  file { "${server_block_dir}/default.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],
   }
-  file { '/var/www':
+  file { $doc_root:
     ensure => directory,
     owner => 'root',
     group => 'root',
     mode => '0775',
   }
-  file { '/var/www/index.html':
+  file { "${doc_root}/index.html":
     ensure => file,
     source => 'puppet:///modules/nginx/index.html',
   }
-  file { '/var/www/example.js':
+  file { "${doc_root}/example.js":
     ensure => file,
     source => 'puppet:///modules/nginx/clock.js',
   }
-  service { 'nginx':
+  service { $service_name:
     ensure => running,
     enable => true,
   }
