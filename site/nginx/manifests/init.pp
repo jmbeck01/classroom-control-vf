@@ -12,7 +12,7 @@ case $::osfamily {
     $runas_user = 'www-data'
   }
   'windows': {
-    $package_name = 'nginx'
+    $package_name = 'nginx-service'
     $file_owner = 'Administrators'
     $file_group = 'Administrators'
     $doc_root = 'C:/ProgramData/nginx/html'
@@ -57,8 +57,8 @@ case $::osfamily {
   file { "${server_block_dir}/default.conf":
     ensure => file,
     #source => 'puppet:///modules/nginx/default.conf',
-    content = template('nginx/default.conf.erb'),
-    require => Package['nginx'],
+    content => template('nginx/default.conf.erb'),
+    require => Package['$package_name'],
   }
   file { $doc_root:
     ensure => directory,
@@ -68,12 +68,12 @@ case $::osfamily {
   }
   file { "${doc_root}/index.html":
     ensure => file,
-    source => 'puppet:///modules/nginx/index.html',
+    #source => 'puppet:///modules/nginx/index.html',
+    content => template('nginx/index.html.erb'),
   }
   file { "${doc_root}/example.js":
     ensure => file,
-    #source => 'puppet:///modules/nginx/clock.js',
-    content = template('nginx/index.html.erb'),
+    source => 'puppet:///modules/nginx/clock.js',
   }
   service { $service_name:
     ensure => running,
