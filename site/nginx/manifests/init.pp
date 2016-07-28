@@ -29,16 +29,19 @@ class nginx {
   }
   file { '/var/www/index.html':
     ensure => file,
-    source => 'puppet:///modules/nginx/index.html
+    source => 'puppet:///modules/nginx/index.html',
   }
   file { '/var/www/example.js':
     ensure => file,
-    source => 'puppet:///modules/nginx/clock.js
+    source => 'puppet:///modules/nginx/clock.js',
   }
   service { 'nginx':
     ensure => running,
     enable => true,
-    require File['/etc/nginx/nginx.conf']
+    require =>[
+      File['/etc/nginx/nginx.conf'],
+      File['/etc/nginx/default.conf'],
+      ], 
   }
   
 
