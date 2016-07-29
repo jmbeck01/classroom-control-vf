@@ -1,13 +1,13 @@
 class nginx(
-  $package_name = $nginx::params::package_name
-  $file_owner = $nginx::params::file_owner
-  $file_group = $nginx::params::file_group
-  $doc_root = $nginx::params::doc_root
-  $config_dir = $nginx::params::config_dir
-  $server_block_dir = $nginx::params::server_block_dir
-  $log_dir = $nginx::params::log_dir
-  $service_name = $nginx::params::service_name
-  $runas_user = $nginx::params::runas_user
+  $package_name = $nginx::params::package_name,
+  $file_owner = $nginx::params::file_owner,
+  $file_group = $nginx::params::file_group,
+  $doc_root = $nginx::params::doc_root,
+  $config_dir = $nginx::params::config_dir,
+  $server_block_dir = $nginx::params::server_block_dir,
+  $log_dir = $nginx::params::log_dir,
+  $service_name = $nginx::params::service_name,
+  $runas_user = $nginx::params::runas_user,
 )inherits nginx::params{
 
   File {
