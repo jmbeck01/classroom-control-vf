@@ -41,6 +41,8 @@ ini_setting { 'random ordering':
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
+  $message = hiera('message')
+  notify { $message: }
   #   class { 'my_class': }
   if $::virtual != 'physical' {
     $vmname = capitalize($::virtual)
