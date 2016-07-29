@@ -1,5 +1,7 @@
-class nginx {
-$root='/var/www'
+class nginx(
+$root = undef,
+){
+
 case $::osfamily {
   'debian': {
     $package_name = 'nginx'
