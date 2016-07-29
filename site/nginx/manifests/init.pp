@@ -1,10 +1,11 @@
 class nginx {
+$root='/var/www'
 case $::osfamily {
   'debian': {
     $package_name = 'nginx'
     $file_owner = 'root'
     $file_group = 'root'
-    $doc_root = '/var/www'
+    $doc_root = $root
     $config_dir = '/etc/nginx'
     $server_block_dir = '/etc/nginx/conf.d'
     $log_dir = '/var/log/nginx'
@@ -15,7 +16,7 @@ case $::osfamily {
     $package_name = 'nginx-service'
     $file_owner = 'Administrators'
     $file_group = 'Administrators'
-    $doc_root = 'C:/ProgramData/nginx/html'
+    $doc_root = $root
     $config_dir = 'C:/ProgramData/nginx'
     $server_block_dir = 'C:/ProgramData/nginx/conf.d'
     $log_dir = 'C:/ProgramData/nginx/logs'
@@ -26,7 +27,7 @@ case $::osfamily {
     $package_name = 'nginx'
     $file_owner = 'root'
     $file_group = 'root'
-    $doc_root = '/var/www'
+    $doc_root = $root
     $config_dir = '/etc/nginx'
     $server_block_dir = '/etc/nginx/conf.d'
     $log_dir = '/var/log/nginx'
