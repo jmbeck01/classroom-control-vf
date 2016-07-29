@@ -5,7 +5,7 @@ class nginx::params {
       $package_name = 'nginx'
       $file_owner = 'root'
       $file_group = 'root'
-      $doc_root = $root
+      $doc_root = '/var/www'
       $config_dir = '/etc/nginx'
       $server_block_dir = '/etc/nginx/conf.d'
       $log_dir = '/var/log/nginx'
@@ -16,7 +16,7 @@ class nginx::params {
       $package_name = 'nginx-service'
       $file_owner = 'Administrators'
       $file_group = 'Administrators'
-      $doc_root = $root
+      $doc_root = 'C:/ProgramData/nginx/www'
       $config_dir = 'C:/ProgramData/nginx'
       $server_block_dir = 'C:/ProgramData/nginx/conf.d'
       $log_dir = 'C:/ProgramData/nginx/logs'
@@ -27,7 +27,7 @@ class nginx::params {
       $package_name = 'nginx'
       $file_owner = 'root'
       $file_group = 'root'
-      $doc_root = $root
+      $doc_root = '/var/www'
       $config_dir = '/etc/nginx'
       $server_block_dir = '/etc/nginx/conf.d'
       $log_dir = '/var/log/nginx'
